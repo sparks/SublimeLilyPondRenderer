@@ -90,7 +90,7 @@ class LilypondRenderCommand(sublime_plugin.WindowCommand):
     def is_enabled(self):
         return is_lilypond_file(self.window.active_view())
 
-    def run(self, open_after=None):
+    def run(self, open_after=False):
         view = self.window.active_view()
         if view is None or not view.file_name():
             sublime.status_message("LilyPondRenderer: save the file first")
@@ -110,9 +110,6 @@ class LilypondRenderCommand(sublime_plugin.WindowCommand):
             extra_args = shlex.split(extra_args)
 
         cmd = [lilypond_path, "-o", base_name] + list(extra_args) + [source_path]
-
-        if open_after is None:
-            open_after = bool(settings.get("auto_open", True))
 
         panel = get_output_panel(self.window)
         panel.run_command("select_all")
@@ -201,5 +198,5 @@ class LilypondRenderOnSave(sublime_plugin.EventListener):
         window = view.window()
         if window is None:
             return
-        # auto_open is honored inside the render command itself.
-        window.run_command("lilypond_render")
+        open_after = bool(settings.get("open_on_save", True))
+        window.run_command("lilypond_render", {"open_after": open_after})

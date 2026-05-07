@@ -7,17 +7,23 @@
     // Extra arguments passed to lilypond, e.g. ["-dno-point-and-click"].
     "extra_args": [],
 
-    // After a successful render, open the resulting PDF.
-    "auto_open": true,
-
-    // Command used to open the PDF. The literal token "$pdf" is replaced with
-    // the PDF path; if you omit it, the path is appended to the end.
+    // Command used to open the PDF (used by "Render and Open", "Open PDF",
+    // and the on-save flow when open_on_save is true).
+    // The literal token "$pdf" is replaced with the PDF path; if you omit it,
+    // the path is appended to the end.
     //   Open in default app (Preview):    ["open", "$pdf"]
     //   Force Preview.app:                ["open", "-a", "Preview", "$pdf"]
     //   Skim:                             ["open", "-a", "Skim", "$pdf"]
     "open_command": ["open", "$pdf"],
 
+    // ---- Render-on-save ----
+    // These two settings ONLY affect the on-save behaviour. The manual
+    // commands ("Render", "Render and Open", "Open PDF") are unaffected.
+
     // Run lilypond automatically every time a .ly / .ily file is saved.
-    // The auto_open setting still controls whether the PDF is opened after.
-    "render_on_save": true
+    "render_on_save": true,
+
+    // After a save-triggered render succeeds, also open the PDF.
+    // Has no effect unless render_on_save is true.
+    "open_on_save": true
 }

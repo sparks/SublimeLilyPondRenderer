@@ -4,11 +4,6 @@
         "command": "lilypond_render"
     },
     {
-        "caption": "LilyPond: Render (don't open)",
-        "command": "lilypond_render",
-        "args": { "open_after": false }
-    },
-    {
         "caption": "LilyPond: Render and Open",
         "command": "lilypond_render",
         "args": { "open_after": true }

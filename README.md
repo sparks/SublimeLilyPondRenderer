@@ -4,9 +4,9 @@ A Sublime Text 4 package that renders the current [LilyPond](https://lilypond.or
 
 ## Features
 
-- **Render** the active file via Command Palette, the Tools menu, or `⌘B`.
-- **Auto-open** the resulting PDF in Preview (or a configured app).
-- **Render-on-save** — re-render every time you save, hands-free.
+- **Render** the active file via Command Palette, the Tools menu, or `⌘B` — render-only by default.
+- **Render and Open** — separate command that renders and then opens the PDF in Preview (or a configured app).
+- **Render-on-save** — re-render every time you save, with an independent toggle for whether the PDF auto-opens.
 - Output (including LilyPond errors) streams into a Sublime output panel.
 - macOS Homebrew / `LilyPond.app` paths are added to `PATH` automatically so it Just Works when Sublime is launched from the Dock.
 
@@ -43,12 +43,11 @@ To uninstall, just `rm` the symlink (or the directory).
 Open any `.ly` / `.ily` file, then:
 
 - **Command Palette** (`⌘⇧P`):
-  - *LilyPond: Render*
-  - *LilyPond: Render (don't open)*
-  - *LilyPond: Render and Open*
-  - *LilyPond: Open PDF*
+  - *LilyPond: Render* — render only
+  - *LilyPond: Render and Open* — render, then open the PDF
+  - *LilyPond: Open PDF* — open the existing PDF without re-rendering
 - **Tools → LilyPond → …**
-- **`⌘B`** — render the active file.
+- **`⌘B`** — render the active file (render only).
 
 ## Settings
 
@@ -63,21 +62,26 @@ Open any `.ly` / `.ily` file, then:
     // Extra args passed to lilypond, e.g. ["-dno-point-and-click"].
     "extra_args": [],
 
-    // After a successful render, open the resulting PDF.
-    "auto_open": true,
-
-    // Command used to open the PDF. "$pdf" is replaced with the PDF path; if
-    // omitted, the path is appended.
+    // Command used to open the PDF (used by "Render and Open", "Open PDF",
+    // and the on-save flow when open_on_save is true).
+    // "$pdf" is replaced with the PDF path; if omitted, the path is appended.
     //   Default app (Preview): ["open", "$pdf"]
     //   Force Preview.app:     ["open", "-a", "Preview", "$pdf"]
     //   Skim:                  ["open", "-a", "Skim", "$pdf"]
     "open_command": ["open", "$pdf"],
 
+    // ---- Render-on-save (these only affect the on-save flow) ----
+
     // Run lilypond automatically every time a .ly / .ily file is saved.
-    // auto_open still controls whether the PDF opens after each save.
-    "render_on_save": false
+    "render_on_save": false,
+
+    // After a save-triggered render, also open the PDF.
+    // Has no effect unless render_on_save is true.
+    "open_on_save": true
 }
 ```
+
+The render-on-save settings are scoped to the save flow only — the manual *Render*, *Render and Open*, and *Open PDF* commands ignore them.
 
 ## Releasing for Package Control
 
