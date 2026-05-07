@@ -47,7 +47,7 @@ Open any `.ly` / `.ily` file, then:
   - *LilyPond: Render and Open* — render, then open the PDF
   - *LilyPond: Open PDF* — open the existing PDF without re-rendering
 - **Tools → LilyPond → …**
-- **`⌘B`** — render the active file (render only).
+- **`⌘B`** — render the active file and open the PDF.
 
 ## Settings
 

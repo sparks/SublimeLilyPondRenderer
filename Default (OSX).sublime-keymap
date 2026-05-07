@@ -2,6 +2,7 @@
     {
         "keys": ["super+b"],
         "command": "lilypond_render",
+        "args": { "open_after": true },
         "context": [
             { "key": "selector", "operator": "equal", "operand": "source.lilypond" }
         ]
@@ -9,6 +10,7 @@
     {
         "keys": ["super+b"],
         "command": "lilypond_render",
+        "args": { "open_after": true },
         "context": [
             { "key": "file_name", "operator": "regex_match", "operand": ".*\\.(ly|ily)$" }
         ]
