@@ -21,22 +21,22 @@ Once published:
 
 ### From source (development / personal use)
 
-Clone and symlink into Sublime's `Packages` directory using the included Makefile:
+Either clone straight into Sublime's `Packages` directory:
+
+```sh
+cd "$HOME/Library/Application Support/Sublime Text/Packages"
+git clone git@github.com:sparks/SublimeLilyPondRenderer.git LilyPondRenderer
+```
+
+…or clone wherever you keep your projects and symlink it in:
 
 ```sh
 git clone git@github.com:sparks/SublimeLilyPondRenderer.git
-cd SublimeLilyPondRenderer
-make install      # symlinks this folder into Sublime's Packages dir
+ln -s "$PWD/SublimeLilyPondRenderer" \
+      "$HOME/Library/Application Support/Sublime Text/Packages/LilyPondRenderer"
 ```
 
-Other targets:
-
-```sh
-make uninstall    # remove the symlink
-make reinstall    # uninstall + install
-make package      # build LilyPondRenderer.sublime-package (zip) for manual install
-make status       # show install state
-```
+To uninstall, just `rm` the symlink (or the directory).
 
 ## Usage
 
