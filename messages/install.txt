@@ -1,0 +1,19 @@
+LilyPondRenderer
+================
+
+Thanks for installing LilyPondRenderer.
+
+Quick start:
+  1. Open a .ly file
+  2. Cmd+B to render — the PDF opens automatically in Preview
+  3. Tweak settings via:
+       Preferences → Package Settings → LilyPondRenderer → Settings
+
+Settings worth knowing about:
+  - "auto_open"      open the PDF after each render (default: true)
+  - "render_on_save" auto-render every time you save (default: false)
+  - "open_command"   override the app used to view the PDF
+  - "lilypond_path"  set if `lilypond` isn't on Sublime's PATH
+
+If `lilypond` can't be found, /opt/homebrew/bin, /usr/local/bin, and the
+LilyPond.app bundle are tried automatically before failing.

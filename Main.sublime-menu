@@ -1,0 +1,52 @@
+[
+    {
+        "caption": "Tools",
+        "mnemonic": "T",
+        "id": "tools",
+        "children": [
+            {
+                "caption": "LilyPond",
+                "children": [
+                    { "caption": "Render", "command": "lilypond_render" },
+                    { "caption": "Render (don't open)", "command": "lilypond_render", "args": { "open_after": false } },
+                    { "caption": "Open PDF", "command": "lilypond_open_pdf" }
+                ]
+            }
+        ]
+    },
+    {
+        "caption": "Preferences",
+        "mnemonic": "n",
+        "id": "preferences",
+        "children": [
+            {
+                "caption": "Package Settings",
+                "mnemonic": "P",
+                "id": "package-settings",
+                "children": [
+                    {
+                        "caption": "LilyPondRenderer",
+                        "children": [
+                            {
+                                "caption": "Settings",
+                                "command": "edit_settings",
+                                "args": {
+                                    "base_file": "${packages}/LilyPondRenderer/LilyPondRenderer.sublime-settings",
+                                    "default": "// LilyPondRenderer — user overrides\n{\n\t$0\n}\n"
+                                }
+                            },
+                            {
+                                "caption": "Key Bindings",
+                                "command": "edit_settings",
+                                "args": {
+                                    "base_file": "${packages}/LilyPondRenderer/Default (OSX).sublime-keymap",
+                                    "default": "[\n\t$0\n]\n"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+]

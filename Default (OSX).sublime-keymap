@@ -1,0 +1,16 @@
+[
+    {
+        "keys": ["super+b"],
+        "command": "lilypond_render",
+        "context": [
+            { "key": "selector", "operator": "equal", "operand": "source.lilypond" }
+        ]
+    },
+    {
+        "keys": ["super+b"],
+        "command": "lilypond_render",
+        "context": [
+            { "key": "file_name", "operator": "regex_match", "operand": ".*\\.(ly|ily)$" }
+        ]
+    }
+]

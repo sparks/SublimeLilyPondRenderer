@@ -1,0 +1,23 @@
+{
+    // Path to the lilypond binary. Use a full path if it's not on Sublime's PATH.
+    // Common locations (/opt/homebrew/bin, /usr/local/bin, the LilyPond.app
+    // bundle) are added to PATH automatically.
+    "lilypond_path": "lilypond",
+
+    // Extra arguments passed to lilypond, e.g. ["-dno-point-and-click"].
+    "extra_args": [],
+
+    // After a successful render, open the resulting PDF.
+    "auto_open": true,
+
+    // Command used to open the PDF. The literal token "$pdf" is replaced with
+    // the PDF path; if you omit it, the path is appended to the end.
+    //   Open in default app (Preview):    ["open", "$pdf"]
+    //   Force Preview.app:                ["open", "-a", "Preview", "$pdf"]
+    //   Skim:                             ["open", "-a", "Skim", "$pdf"]
+    "open_command": ["open", "$pdf"],
+
+    // Run lilypond automatically every time a .ly / .ily file is saved.
+    // The auto_open setting still controls whether the PDF is opened after.
+    "render_on_save": true
+}

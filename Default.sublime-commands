@@ -1,0 +1,28 @@
+[
+    {
+        "caption": "LilyPond: Render",
+        "command": "lilypond_render"
+    },
+    {
+        "caption": "LilyPond: Render (don't open)",
+        "command": "lilypond_render",
+        "args": { "open_after": false }
+    },
+    {
+        "caption": "LilyPond: Render and Open",
+        "command": "lilypond_render",
+        "args": { "open_after": true }
+    },
+    {
+        "caption": "LilyPond: Open PDF",
+        "command": "lilypond_open_pdf"
+    },
+    {
+        "caption": "Preferences: LilyPondRenderer Settings",
+        "command": "edit_settings",
+        "args": {
+            "base_file": "${packages}/LilyPondRenderer/LilyPondRenderer.sublime-settings",
+            "default": "// LilyPondRenderer — user overrides\n{\n\t$0\n}\n"
+        }
+    }
+]
